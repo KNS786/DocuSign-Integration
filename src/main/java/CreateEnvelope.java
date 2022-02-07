@@ -97,21 +97,31 @@ public class CreateEnvelope {
 
         //Add a recipient to sign the document
         Signer signer=new Signer();
-        signer.setEmail(UserName);
+        signer.setEmail("ajay@beezlabs.com");
         signer.setName("Small Document creater ");
         signer.setRecipientId("1");
         signer.setRoutingOrder("1");
 
+        Signer signer2=new Signer();
+        signer2.setEmail("navaninavani306@gmail.com");
+        signer2.setName("Small Document creater ");
+        signer2.setRecipientId("3");
+        signer2.setRoutingOrder("1");
 
+        Signer Signer1=new Signer();
+         Signer1.setEmail("navani@beezlabs.com");
+         Signer1.setName("Small Documnet Creater");
+         Signer1.setRecipientId("2");
+         Signer1.setRoutingOrder("2");
 
         //Create a signhere tab somewhare on the document for signer to sign
         SignHere signHere=new SignHere();
-        signHere.setDocumentId("12345");
+      /*  signHere.setDocumentId("12345");
         signHere.setPageNumber("1");
         signHere.setRecipientId("1");
         signHere.setXPosition("100");
         signHere.setYPosition("100");
-        signHere.setScaleValue("0.5");
+        signHere.setScaleValue("0.5");*/
 
         List<SignHere> signHereTabs = new ArrayList<>();
         signHereTabs.add(signHere);
@@ -122,6 +132,8 @@ public class CreateEnvelope {
         envDef.setRecipients(new Recipients());
         envDef.getRecipients().setSigners(new ArrayList<>());
         envDef.getRecipients().getSigners().add(signer);
+        envDef.getRecipients().getSigners().add(Signer1);
+        envDef.getRecipients().getSigners().add(signer2);
         envDef.setDocuments(docs);
         // envDef.documentBase64();
 
