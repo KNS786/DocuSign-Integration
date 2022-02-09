@@ -24,7 +24,8 @@ public class CreateEnvelope {
 
     public byte[] GetFileBase64Format() {
         byte[] fileBytes=null;
-        String pathToDocument="/new_document.pdf";
+     //  String pathToDocument="/new_document.pdf";
+        String pathToDocument="/FY21 Annual Regional Representation Letter (5).doc";
         try {
             String currentDir = System.getProperty("user.dir");
             Path path = Paths.get(currentDir + pathToDocument);
@@ -80,7 +81,7 @@ public class CreateEnvelope {
     public void RequestSignEnvelope(){
         System.out.println("Request a signature ");
         EnvelopeDefinition envDef=new EnvelopeDefinition();
-        envDef.setEmailSubject("Please Sign My Java SDK envelope");
+        envDef.setEmailSubject("Test Document pdf ");
         envDef.setEmailBlurb("Hello, Please sign my Java SDK Envelope.");
 
 
@@ -91,26 +92,28 @@ public class CreateEnvelope {
         doc.setDocumentBase64(base64Doc);
         doc.setName("new_document");
         doc.setDocumentId("12345");
+        doc.setFileExtension("doc");
+
 
         List<Document> docs=new ArrayList<>();
         docs.add(doc);
 
         //Add a recipient to sign the document
         Signer signer=new Signer();
-        signer.setEmail("ajay@beezlabs.com");
-        signer.setName("Small Document creater ");
+        signer.setEmail("navaninavani306@gmail.com");
+        signer.setName("Test Document docx");
         signer.setRecipientId("1");
         signer.setRoutingOrder("1");
 
         Signer signer2=new Signer();
-        signer2.setEmail("navaninavani306@gmail.com");
-        signer2.setName("Small Document creater ");
+        signer2.setEmail("navaninavani786@gmail.com");
+        signer2.setName("Test Document pdf ");
         signer2.setRecipientId("3");
-        signer2.setRoutingOrder("1");
+        signer2.setRoutingOrder("3");
 
         Signer Signer1=new Signer();
          Signer1.setEmail("navani@beezlabs.com");
-         Signer1.setName("Small Documnet Creater");
+         Signer1.setName("Test Document docx");
          Signer1.setRecipientId("2");
          Signer1.setRoutingOrder("2");
 
@@ -132,7 +135,7 @@ public class CreateEnvelope {
         envDef.setRecipients(new Recipients());
         envDef.getRecipients().setSigners(new ArrayList<>());
         envDef.getRecipients().getSigners().add(signer);
-        envDef.getRecipients().getSigners().add(Signer1);
+       envDef.getRecipients().getSigners().add(Signer1);
         envDef.getRecipients().getSigners().add(signer2);
         envDef.setDocuments(docs);
         // envDef.documentBase64();
